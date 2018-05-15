@@ -10,4 +10,18 @@
 ## Details
 Interfaces for data transformation
 
-[Dhii]: https://github.com/Dhii/dhii
+### Interfaces
+- [`TransformerInterface`] - Something that can transform a value to another value.
+- [`TransformerFactoryInterface`] - Something that can create a transformer.
+- [`TransformerAwareInterface`] - Something that exposes a transformer.
+- [`TransformerExceptionInterface`] - Represents a problem related to a transformer.
+- [`CouldNotTransformExceptionInterface`] - Represents a problem with the transformation process.
+
+
+[Dhii]:                                                         https://github.com/Dhii/dhii
+
+[`TransformerInterface`]:                                       src/TransformerInterface.php
+[`TransformerFactoryInterface`]:                                src/TransformerFactoryInterface.php
+[`TransformerAwareInterface`]:                                  src/TransformerAwareInterface.php
+[`TransformerExceptionInterface`]:                              src/Exception/TransformerExceptionInterface.php
+[`CouldNotTransformExceptionInterface`]:                        src/Exception/CouldNotTransformExceptionInterface.php
