@@ -9,5 +9,12 @@ namespace Dhii\Transformer;
  */
 interface TransformerAwareInterface
 {
-
+    /**
+     * Retrieves the transformer associated with this instance.
+     *
+     * @since [*next-version*]
+     *
+     * @return TransformerInterface|null
+     */
+    public function getTransformer();
 }
