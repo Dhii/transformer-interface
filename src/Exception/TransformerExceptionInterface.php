@@ -3,6 +3,7 @@
 namespace Dhii\Transformer\Exception;
 
 use Dhii\Exception\ThrowableInterface;
+use Dhii\Transformer\TransformerAwareInterface;
 use Dhii\Transformer\TransformerInterface;
 
 /**
@@ -10,14 +11,8 @@ use Dhii\Transformer\TransformerInterface;
  *
  * @since [*next-version*]
  */
-interface TransformerExceptionInterface extends ThrowableInterface
+interface TransformerExceptionInterface extends
+    ThrowableInterface,
+    TransformerAwareInterface
 {
-    /**
-     * Retrieves the transformer instance that erred, if any.
-     *
-     * @since [*next-version*]
-     *
-     * @return TransformerInterface|null
-     */
-    public function getTransformer();
 }
