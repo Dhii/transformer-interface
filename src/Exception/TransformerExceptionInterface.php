@@ -1,18 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Dhii\Transformer\Exception;
 
-use Dhii\Exception\ThrowableInterface;
 use Dhii\Transformer\TransformerAwareInterface;
-use Dhii\Transformer\TransformerInterface;
+use Throwable;
 
 /**
  * An exception thrown in relation to a transformer.
- *
- * @since [*next-version*]
  */
 interface TransformerExceptionInterface extends
-    ThrowableInterface,
+    Throwable,
     TransformerAwareInterface
 {
 }

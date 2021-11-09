@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Dhii\Transformer;
 
 use Dhii\Transformer\Exception\CouldNotTransformExceptionInterface;
@@ -7,15 +9,11 @@ use Dhii\Transformer\Exception\TransformerExceptionInterface;
 
 /**
  * Something that can transform some source data into some output data.
- *
- * @since [*next-version*]
  */
 interface TransformerInterface
 {
     /**
      * Transforms some source data into some output data.
-     *
-     * @since [*next-version*]
      *
      * @param mixed $source The source data to transform.
      *
