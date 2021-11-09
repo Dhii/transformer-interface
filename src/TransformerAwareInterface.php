@@ -11,7 +11,6 @@ interface TransformerAwareInterface
 {
     /**
      * Retrieves the transformer associated with this instance.
-     *
      */
     public function getTransformer(): ?TransformerInterface;
 }

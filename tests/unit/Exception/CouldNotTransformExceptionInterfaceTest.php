@@ -3,10 +3,7 @@
 namespace Dhii\Transformer\UnitTest\Exception;
 
 use Dhii\Transformer\Exception\CouldNotTransformExceptionInterface as Subject;
-
-use Exception as RootException;
 use PHPUnit\Framework\MockObject\MockObject;
-use PHPUnit\Framework\MockObject\MockBuilder;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -23,107 +20,8 @@ class CouldNotTransformExceptionInterfaceTest extends TestCase
      */
     public function createInstance($methods = array())
     {
-        is_array($methods) && $methods = $this->mergeValues($methods, array(
-            '__toString',
-            'getFile',
-            'getLine',
-            'getTrace',
-            'getTraceAsString',
-            'getMessage',
-            'getPrevious',
-            'getCode',
-
-            'getTransformer',
-            'getSourceData',
-        ));
-
         $mock = $this->getMockBuilder(Subject::class)
             ->onlyMethods($methods)
-            ->getMock();
-
-        return $mock;
-    }
-
-    /**
-     * Merges the values of two arrays.
-     *
-     * The resulting product will be a numeric array where the values of both inputs are present, without duplicates.
-     *
-     * @param array $destination The base array.
-     * @param array $source The array with more keys.
-     *
-     * @return array The array which contains unique values
-     */
-    public function mergeValues($destination, $source)
-    {
-        return array_keys(array_merge(array_flip($destination), array_flip($source)));
-    }
-
-    /**
-     * Creates a mock that both extends a class and implements interfaces.
-     *
-     * This is particularly useful for cases where the mock is based on an
-     * internal class, such as in the case with exceptions. Helps to avoid
-     * writing hard-coded stubs.
-     *
-     * @param string $className Name of the class for the mock to extend.
-     * @param string[] $interfaceNames Names of the interfaces for the mock to implement.
-     *
-     * @return MockBuilder The builder for a mock of an object that extends and implements
-     *                     the specified class and interfaces.
-     */
-    public function mockClassAndInterfaces($className, $interfaceNames = array())
-    {
-        $paddingClassName = uniqid($className);
-        $definition = vsprintf('abstract class %1$s extends %2$s implements %3$s {}', array(
-            $paddingClassName,
-            $className,
-            implode(', ', $interfaceNames),
-        ));
-        eval($definition);
-
-        return $this->getMockBuilder($paddingClassName);
-    }
-
-    /**
-     * Creates a mock that uses traits.
-     *
-     * This is particularly useful for testing integration between multiple traits.
-     *
-     * @param string[] $traitNames Names of the traits for the mock to use.
-     *
-     * @return MockBuilder The builder for a mock of an object that uses the traits.
-     */
-    public function mockTraits($traitNames = array())
-    {
-        $paddingClassName = uniqid('Traits');
-        $definition = vsprintf('abstract class %1$s {%2$s}', array(
-            $paddingClassName,
-            implode(
-                ' ',
-                array_map(
-                    function ($v) {
-                        return vsprintf('use %1$s;', array($v));
-                    },
-                    $traitNames)),
-        ));
-        var_dump($definition);
-        eval($definition);
-
-        return $this->getMockBuilder($paddingClassName);
-    }
-
-    /**
-     * Creates a new exception.
-     *
-     * @param string $message The exception message.
-     *
-     * @return RootException|MockObject The new exception.
-     */
-    public function createException($message = '')
-    {
-        $mock = $this->getMockBuilder('Exception')
-            ->setConstructorArgs(array($message))
             ->getMock();
 
         return $mock;
