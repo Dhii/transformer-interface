@@ -1,22 +1,18 @@
 <?php
 
-namespace Dhii\Transformer;
+declare(strict_types=1);
 
-use Dhii\Factory\FactoryInterface;
+namespace Dhii\Transformer;
 
 /**
  * A factory of transformers.
- *
- * @since [*next-version*]
  */
-interface TransformerFactoryInterface extends FactoryInterface
+interface TransformerFactoryInterface
 {
     /**
-     * {@inheritdoc}
-     *
-     * @since [*next-version*]
+     * Creates a transformer.
      *
      * @return TransformerInterface The new transformer.
      */
-    public function make($config = null);
+    public function make($config = null): TransformerInterface;
 }
