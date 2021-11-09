@@ -14,5 +14,5 @@ interface TransformerFactoryInterface
      *
      * @return TransformerInterface The new transformer.
      */
-    public function make($config = null): TransformerInterface;
+    public function createTransformer(): TransformerInterface;
 }

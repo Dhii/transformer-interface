@@ -10,6 +10,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - **BC Break**: Support for obsolete dependencies (#2).
 - Support for Phan, NetBeans, Travis, CodeClimate, phpmd (#2).
 
+### Changed
+- **BC Break**: `TransformerFactoryInterface#make()` renamed to `createTransformer()`.
+It is now standalone, and doesn't require params.
+
 ### Added
 - Support for PHP >= 8.0 (#2).
 - A virtual environment (#2).
