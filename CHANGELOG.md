@@ -12,8 +12,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 - **BC Break**: `TransformerFactoryInterface#make()` renamed to `createTransformer()`.
-It is now standalone, and doesn't require params.
-- `TransformerAwareInterface#getTransformer()` is now _required_ to return a transformer.
+It is now standalone, and doesn't require params (#2).
+- `TransformerAwareInterface#getTransformer()` is now _required_ to return a transformer (#2).
 
 ### Added
 - Support for PHP >= 8.0 (#2).
